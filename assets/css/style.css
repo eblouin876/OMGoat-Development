@@ -18,6 +18,15 @@
         </div>
     </div> */
 
+/*         
+        <div class="portfolio-card">
+            <div class="portfolio-card-border">
+                <a src="#" class="portfolio-card-button center">Check it Out!</a>
+            </div>
+            <img src="https://placeimg.com/640/480/nature" alt="Nature" class="portfolio-card-image">
+        </div> */
+
+
 
 /* Able to set color scheme here so that you don't have to search for every instance */
 :root {
@@ -36,11 +45,11 @@
     grid-template-columns: .5rem repeat(12, 1fr) .5rem;
     grid-template-rows: auto;
     grid-template-areas:
-        ". . . .  card card card . . . . . . ."
-        ". . . .  card card card . . . . . . ."
+        ". . . .  portfolio-card portfolio-card portfolio-card . . . . . . ."
+        ". . . .  portfolio-card portfolio-card portfolio-card . . . . . . ."
         ". . . .  . . . . . . . . . ."
         ". . . . . . . . . . . . . ."
-        ". . . . . . . . . . . . . .";
+        ". . . . . . . . . . . contact contact contact";
     color: var(--text-color);
 }
 
@@ -144,27 +153,49 @@
     text-decoration: none
 }
 
-
-/* Footer */
-.footer {
+.portfolio-card {
     display: grid;
-    grid-area: foot;
-    grid-template-columns: 5% 1fr 1fr 1fr 5%;
+    grid-area: portfolio-card;
+    grid-template-columns: 1rem 1fr 2rem;
+    grid-template-rows: 1rem 1fr 2rem;
     grid-template-areas:
-        "foot-contact foot-contact foot-contact foot-contact foot-contact"
-        ". . cont-button . ."
+        "pci pci ."
+        "pci pci ."
+        ". . ."
 }
 
-.contact-button {
-    grid-area: cont-button;
-    justify-self: center;
+.portfolio-card-image {
+    grid-area: pci;
+    object-fit: contain;
+    max-width: 100%;
 }
+
+.portfolio-card-border {
+    display: grid;
+    border: 1px solid yellow;
+    grid-area: 2 / 2 / 4 / 4;
+    grid-template-rows: 1fr 2rem;
+    grid-template-areas:
+        "."
+        "pcb"
+}
+
+.portfolio-card-button {
+    grid-area: pcb;
+    font-size: 1rem;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    padding: .5rem;
+    text-decoration: none
+}
+
+
+/* Contact form */
+
 
 .contact-form {
     display: grid;
-    grid-area: foot-contact;
-    height: 0px;
-    overflow: hidden;
+    grid-area: contact;
     grid-template-columns: 15% 1fr 15%;
     grid-template-areas:
         ". cont-name ."
