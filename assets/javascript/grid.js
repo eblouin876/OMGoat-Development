@@ -1,5 +1,5 @@
 // Functions
-let collapse = () => {
+let collapseNav = () => {
     if ($(".nav-expand").attr("state") === "collapsed") {
         $(".wrapper").animate({
             marginTop: "+=2.5rem"
@@ -26,9 +26,23 @@ let scroll = function (event) {
     }, 500);
 }
 
-
+let collapseContact = function () {
+    if ($(".contact-form").attr("state") === "collapsed") {
+        $(".contact-form").animate({
+            height: "100%"
+        })
+        $(".contact-form").attr("state", "open")
+    } else {
+        $(".contact-form").animate({
+            height: "0"
+        })
+        $(".contact-form").attr("state", "collapsed")
+    }
+}
 
 // Document listeners
-$(document).on('click', '.nav-button', collapse)
+$(document).on('click', '.nav-button', collapseNav)
+
+$(document).on('click', '.contact-button', collapseContact)
 
 $(document).on('click', '.scroll-link', scroll)

@@ -1,0 +1,201 @@
+/*      <div class="card">
+            <img src="https://placeimg.com/640/480/nature" alt="Nature" class="card-image center">
+            <h1 class="card-title">Look at me!</h1>
+            <p class="card-text scroll">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Omnis, id odio. Ut
+                delectus esse voluptas reprehenderit, alias dicta perspiciatis eum ratione, voluptatum vitae vero rem.
+                Totam minus earum mollitia quas?
+            </p>
+            <a href="#" class="card-button center">Check it out!</a>
+        </div>
+         */
+
+/* 
+    <div class="nav">
+        <h1 class="nav-title">OM Goat</h1>
+        <img class="nav-button" src="assets/images/menu.png" alt="menu">
+        <div class="nav-expand" state="collapsed">
+            <a class="nav-expand-txt">Portfolio</a>
+        </div>
+    </div> */
+
+
+/* Able to set color scheme here so that you don't have to search for every instance */
+:root {
+    --primary-color: aqua;
+    --background-color: lightblue;
+    --accent-color: teal;
+    --border-color: #ccc;
+    --text-color: #black;
+    background-color: var(--background-color);
+}
+
+/* Primary wrapper */
+.wrapper {
+    display: grid;
+    margin-top: 2.5rem;
+    grid-template-columns: .5rem repeat(12, 1fr) .5rem;
+    grid-template-rows: auto;
+    grid-template-areas:
+        ". . . .  card card card . . . . . . ."
+        ". . . .  card card card . . . . . . ."
+        ". . . .  . . . . . . . . . ."
+        ". . . . . . . . . . . . . ."
+        ". . . . . . . . . . . . . .";
+    color: var(--text-color);
+}
+
+
+/* Navbar */
+.nav {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    display: grid;
+    grid-area: nav;
+    grid-template-columns: 5% 1fr 1fr 1fr 5%;
+    grid-template-rows: 2.5rem;
+    grid-template-areas:
+        ". . nav-title nav-button ."
+        "nav-expand nav-expand nav-expand nav-expand nav-expand"
+}
+
+.nav-title {
+    grid-area: nav-title;
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--accent-color);
+    justify-self: center;
+}
+
+.nav-button {
+    grid-area: nav-button;
+    justify-self: right;
+    align-self: end;
+    background-color: transparent;
+    border: none;
+}
+
+.nav-expand {
+    display: grid;
+    grid-area: nav-expand;
+    height: 0px;
+    overflow: hidden;
+    color: var(--text-color);
+    background-color: var(--accent-color);
+    grid-template-columns: 1fr 5%;
+    grid-template-areas:
+        "nav-expand-txt ."
+}
+
+.nav-expand-txt {
+    grid-area: nav-expand-txt;
+    justify-self: right;
+    color: var(--text-color);
+    padding: .5rem;
+    font-size: 1.5rem;
+    text-decoration: none;
+}
+
+
+/* Card styling */
+.card {
+    display: grid;
+    grid-area: card;
+    margin: .5rem;
+    border: .5px solid var(--border-color);
+    grid-template-columns: 10% 1fr 1fr 10%;
+    grid-template-rows: auto;
+    grid-template-areas:
+        "img img img img"
+        "img img img img"
+        "img img img img"
+        ". title title ."
+        ". text text ."
+        ". text text ."
+        ". text text ."
+        ". text text ."
+        ". button button ."
+}
+
+.card-image {
+    grid-area: img;
+    object-fit: contain;
+    width: 100%;
+    margin-bottom: inherit;
+}
+
+.card-title {
+    grid-area: title;
+    font-size: 2rem;
+}
+
+.card-text {
+    grid-area: text;
+}
+
+.card-button {
+    grid-area: button;
+    margin: inherit;
+    font-size: 1rem;
+    border: 1px solid var(--border-color);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    padding: .5rem;
+    text-decoration: none
+}
+
+
+/* Footer */
+.footer {
+    display: grid;
+    grid-area: foot;
+    grid-template-columns: 5% 1fr 1fr 1fr 5%;
+    grid-template-areas:
+        "foot-contact foot-contact foot-contact foot-contact foot-contact"
+        ". . cont-button . ."
+}
+
+.contact-button {
+    grid-area: cont-button;
+    justify-self: center;
+}
+
+.contact-form {
+    display: grid;
+    grid-area: foot-contact;
+    height: 0px;
+    overflow: hidden;
+    grid-template-columns: 15% 1fr 15%;
+    grid-template-areas:
+        ". cont-name ."
+        ". cont-email ."
+        ". cont-mes ."
+        ". cont-mes .";
+}
+
+.contact-name {
+    grid-area: cont-name;
+}
+
+.contact-email {
+    grid-area: cont-email;
+}
+
+.contact-message {
+    grid-area: cont-mes;
+}
+
+/* General Properties */
+.d-none {
+    display: none;
+}
+
+.center {
+    align-self: center;
+    justify-self: center;
+}
+
+.scroll-box {
+    overflow: scroll;
+    padding: .25rem;
+}
