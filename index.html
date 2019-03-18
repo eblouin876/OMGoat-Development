@@ -16,19 +16,43 @@
         <!-- <h1 class="nav-title">Ozark Mountain Goat Development</h1> -->
         <img class="nav-button" src="assets/images/menu.png" alt="menu">
         <div class="nav-expand" state="collapsed">
-            <a class="nav-expand-txt scroll-link" href="#portfolio">Portfolio</a>
+            <a class="nav-expand-txt scroll-link" href="#about" style="justify-self: left;">About</a>
+            <a class="nav-expand-txt scroll-link" href="#portfolio" style="justify-self: center;">Portfolio</a>
+            <a class="nav-expand-txt scroll-link" href="#contact" style="justify-self: right;">Contact</a>
         </div>
     </div>
 
     <div class="wrapper">
         <h1 class="main-title center">Ozark Mountain Goat</h1>
-        <div class="portfolio-card d-none">
+        <h2 class="sub-title center">Full Stack Developer</h2>
+        <div class="about-photo center sliding slide-right">
+            <img src="assets/images/profilesqr.jpg" alt="Emile" class="about-photo">
+        </div>
+        <h2 class="about-header" id="about">
+            About Emile
+        </h2>
+        <p class="about-text sliding slide-left">
+            Emile is a full stack developer with three years of self-taught coding experience. He is currently
+            attending a web development bootcamp at the University of Washington in Seattle. He currently has a
+            strong foundation in JavaScript (ES5 & ES6), CSS3, HTML5, and Python as well as a functional understanding
+            of Swift, Java, and a touch of Arduino.
+            <!-- <br>Emile has a strong proclivity toward test driven development and object oriented programming, and is
+            eager
+            to learn new
+            languages and
+            practices on the go to stay on the cutting edge of development. He is looking to combine his love of the
+            outdoors
+            and passion for being outside and getting others outside with his skills in development. -->
+        </p>
+        <h2 class="portfolio-title" id="portfolio">Portfolio</h2>
+        <div class="portfolio-card sliding slide-left">
             <div class="portfolio-card-border">
-                <a src="#" class="portfolio-card-button center">Check it Out!</a>
+                <a src="#" class="portfolio-card-button">Check it Out!</a>
             </div>
             <img src="https://placeimg.com/640/480/nature" alt="Nature" class="portfolio-card-image">
         </div>
-        <form class="contact-form d-none">
+        <form class="contact-form" id="contact">
+            <h2 class="contact-header">Contact Emile</h2>
             <input class="contact-name" placeholder="Name">
             <input type="text" class="contact-email" placeholder="Email">
             <textarea cols="30" rows="10" class="contact-message" placeholder="Message"></textarea>

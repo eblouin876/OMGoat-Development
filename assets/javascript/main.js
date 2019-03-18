@@ -37,5 +37,6 @@ class Firebase {
 
 // Document listeners
 $(document).ready(() => {
+    $(window).trigger('scroll')
     let fire = new Firebase()
 })

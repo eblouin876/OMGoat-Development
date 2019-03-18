@@ -1,14 +1,3 @@
-/*      <div class="card">
-            <img src="https://placeimg.com/640/480/nature" alt="Nature" class="card-image center">
-            <h1 class="card-title">Look at me!</h1>
-            <p class="card-text scroll">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Omnis, id odio. Ut
-                delectus esse voluptas reprehenderit, alias dicta perspiciatis eum ratione, voluptatum vitae vero rem.
-                Totam minus earum mollitia quas?
-            </p>
-            <a href="#" class="card-button center">Check it out!</a>
-        </div>
-         */
-
 /* 
     <div class="nav">
         <h1 class="nav-title">OM Goat</h1>
@@ -30,6 +19,7 @@
 
 /* Able to set color scheme here so that you don't have to search for every instance */
 :root {
+    --row-height: calc(100vh / 12);
     --yellow: #f5d755;
     --orange: #b64626;
     --gray: #dde2e3;
@@ -41,22 +31,55 @@
     --font-body: mr-eaves-sans;
     background-color: var(--dusty-blue);
     background-image: url("../images/background.jpg");
-    background-size: 100%;
+    background-size: 100% calc(50 * var(--row-height));
 }
 
 /* Primary wrapper */
 .wrapper {
     display: grid;
-    margin-top: 5rem;
     grid-template-columns: .5rem repeat(12, 1fr) .5rem;
-    grid-template-rows: repeat(51, 8.1vh);
+    grid-template-rows: repeat(50, var(--row-height));
     color: var(--text-color);
+}
+
+
+/* About Emile */
+.about-photo {
+    grid-area: 13 / 10 / 18 / 13;
+    object-fit: contain;
+    max-width: 100%;
+    border-radius: 100%;
+}
+
+.about-header {
+    grid-area: 13 / 3 / 18 / 9;
+    font: var(--font-subhead);
+    color: var(--gray);
+    padding: .5rem;
+    font-size: 5rem;
+}
+
+.about-text {
+    grid-area: 14 / 3 / 18 / 10;
+    font: var(--font-body);
+    color: var(--blue);
+    font-size: 1.5rem;
+    margin-top: .5rem;
 }
 
 /* Title */
 .main-title {
-    grid-area: 2 / 3 / 5 / 13;
+    grid-area: 3 / 3 / 6 / 13;
     font-family: var(--font-header);
+    font-weight: 600;
+    font-style: normal;
+    color: var(--gray);
+    font-size: 6.5rem;
+}
+
+.sub-title {
+    grid-area: 5 / 4 / 8 / 12;
+    font-family: var(--font-subhead);
     font-weight: 600;
     font-style: normal;
     color: var(--gray);
@@ -75,7 +98,7 @@
     grid-template-rows: 2.5rem;
     grid-template-areas:
         ". . nav-title nav-title nav-title nav-button ."
-        "nav-expand nav-expand nav-expand nav-expand nav-expand nav-expand nav-expand"
+        ". nav-expand nav-expand nav-expand nav-expand nav-expand ."
 }
 
 .nav-title {
@@ -102,81 +125,36 @@
     height: 0px;
     overflow: hidden;
     color: var(--gray);
-    grid-template-columns: 1fr 5%;
-    grid-template-areas:
-        "nav-expand-txt ."
+    grid-template-columns: 1fr 1fr 1fr;
 }
 
 .nav-expand-txt {
-    grid-area: nav-expand-txt;
-    justify-self: right;
+    font: var(--font-subhead);
     color: var(--text-color);
     padding: .5rem;
-    font-size: 1.5rem;
+    font-size: 2rem;
     text-decoration: none;
 }
 
 
-/* Card styling */
-.card {
-    display: grid;
-    grid-area: card;
-    margin: .5rem;
-    border: .5px solid var(--border-color);
-    grid-template-columns: 10% 1fr 1fr 10%;
-    grid-template-rows: auto;
-    grid-template-areas:
-        "img img img img"
-        "img img img img"
-        "img img img img"
-        ". title title ."
-        ". text text ."
-        ". text text ."
-        ". text text ."
-        ". text text ."
-        ". button button ."
-}
-
-.card-image {
-    grid-area: img;
-    object-fit: contain;
-    width: 100%;
-    margin-bottom: inherit;
-}
-
-.card-title {
-    grid-area: title;
-    font-size: 2rem;
-}
-
-.card-text {
-    grid-area: text;
-}
-
-.card-button {
-    grid-area: button;
-    margin: inherit;
-    font-size: 1rem;
-    border: 1px solid var(--border-color);
-    background-color: var(--background-color);
-    color: var(--text-color);
+/* Portfolio styling */
+.portfolio-title {
+    grid-area: 20 / 3 / 22 / 9;
+    font: var(--font-subhead);
+    color: var(--gray);
     padding: .5rem;
-    text-decoration: none
+    font-size: 5rem;
 }
 
 .portfolio-card {
     display: grid;
-    grid-area: portfolio-card;
+    grid-area: 24 / 3 / 28 / 6;
     grid-template-columns: 1rem 1fr 2rem;
-    grid-template-rows: 1rem 1fr 2rem;
-    grid-template-areas:
-        "pci pci ."
-        "pci pci ."
-        ". . ."
+    grid-template-rows: 1rem 1fr;
 }
 
 .portfolio-card-image {
-    grid-area: pci;
+    grid-area: 1 / 1 / 3 / 3;
     object-fit: contain;
     max-width: 100%;
 }
@@ -185,19 +163,18 @@
     display: grid;
     border: 1px solid #f5d755;
     grid-area: 2 / 2 / 4 / 4;
-    grid-template-rows: 1fr 2rem;
-    grid-template-areas:
-        "."
-        "pcb"
+    margin-bottom: 2.5rem;
 }
 
 .portfolio-card-button {
-    grid-area: pcb;
     font-size: 1rem;
     background-color: var(--background-color);
     color: var(--text-color);
     padding: .5rem;
-    text-decoration: none
+    text-decoration: none;
+    justify-self: right;
+    align-self: end;
+    margin-right: 1rem;
 }
 
 
@@ -206,25 +183,46 @@
 
 .contact-form {
     display: grid;
-    grid-area: contact;
+    grid-area: 45 / 8 / 51 / 14;
     grid-template-columns: 15% 1fr 15%;
     grid-template-areas:
+        ". cont-head ."
         ". cont-name ."
         ". cont-email ."
         ". cont-mes ."
         ". cont-mes .";
 }
 
-.contact-name {
-    grid-area: cont-name;
+.contact-name,
+.contact-email,
+.contact-message {
+    margin: .5rem;
+    border-radius: 5px;
+    border: .5px solid var(--gray);
+    font-family: var(--font-body);
+    font-size: 1.5rem;
+    padding: .115rem;
 }
 
 .contact-email {
-    grid-area: cont-email;
+    grid-area: cont-email
+}
+
+.contact-name {
+    grid-area: cont-name
 }
 
 .contact-message {
-    grid-area: cont-mes;
+    grid-area: cont-mes
+}
+
+.contact-header {
+    grid-area: cont-head;
+    font-family: var(--font-subhead);
+    font-weight: 600;
+    font-style: normal;
+    color: var(--gray);
+    font-size: 3rem;
 }
 
 /* General Properties */
@@ -240,4 +238,23 @@
 .scroll-box {
     overflow: scroll;
     padding: .25rem;
+}
+
+.sliding {
+    opacity: 0;
+}
+
+.slide-left {
+    transform: translateX(-50vw);
+    transition: all 800ms linear;
+}
+
+.slide-right {
+    transform: translateX(+50vw);
+    transition: all 800ms linear;
+}
+
+.in-view {
+    opacity: 1;
+    transform: translateX(0px);
 }
