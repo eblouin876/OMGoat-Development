@@ -1,9 +1,6 @@
 // Functions
 let collapseNav = () => {
     if ($(".nav-expand").attr("state") === "collapsed") {
-        $(".wrapper").animate({
-            marginTop: "+=2.5rem"
-        })
         $(".nav-expand").animate({
             height: "100%"
         })
@@ -11,9 +8,6 @@ let collapseNav = () => {
     } else {
         $(".nav-expand").animate({
             height: "0"
-        })
-        $(".wrapper").animate({
-            marginTop: "-=2.5rem"
         })
         $(".nav-expand").attr("state", "collapsed")
     }

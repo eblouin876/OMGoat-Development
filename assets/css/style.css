@@ -30,27 +30,37 @@
 
 /* Able to set color scheme here so that you don't have to search for every instance */
 :root {
-    --primary-color: aqua;
-    --background-color: lightblue;
-    --accent-color: teal;
-    --border-color: #ccc;
-    --text-color: #black;
-    background-color: var(--background-color);
+    --yellow: #f5d755;
+    --orange: #b64626;
+    --gray: #dde2e3;
+    --dusty-blue: #9aacb8;
+    --blue: #3c455c;
+    --text-orange: #b7440d;
+    --font-header: ivymode, sans-serif;
+    --font-subhead: mr-eaves-modern;
+    --font-body: mr-eaves-sans;
+    background-color: var(--dusty-blue);
+    background-image: url("../images/background.jpg");
+    background-size: 100%;
 }
 
 /* Primary wrapper */
 .wrapper {
     display: grid;
-    margin-top: 2.5rem;
+    margin-top: 5rem;
     grid-template-columns: .5rem repeat(12, 1fr) .5rem;
-    grid-template-rows: auto;
-    grid-template-areas:
-        ". . . .  portfolio-card portfolio-card portfolio-card . . . . . . ."
-        ". . . .  portfolio-card portfolio-card portfolio-card . . . . . . ."
-        ". . . .  . . . . . . . . . ."
-        ". . . . . . . . . . . . . ."
-        ". . . . . . . . . . . contact contact contact";
+    grid-template-rows: repeat(51, 8.1vh);
     color: var(--text-color);
+}
+
+/* Title */
+.main-title {
+    grid-area: 2 / 3 / 5 / 13;
+    font-family: var(--font-header);
+    font-weight: 600;
+    font-style: normal;
+    color: var(--gray);
+    font-size: 6rem;
 }
 
 
@@ -58,21 +68,23 @@
 .nav {
     position: fixed;
     width: 100%;
-    top: 0;
+    top: 2.5rem;
     display: grid;
     grid-area: nav;
-    grid-template-columns: 5% 1fr 1fr 1fr 5%;
+    grid-template-columns: 5% 5% 1fr 1fr 1fr 5% 5%;
     grid-template-rows: 2.5rem;
     grid-template-areas:
-        ". . nav-title nav-button ."
-        "nav-expand nav-expand nav-expand nav-expand nav-expand"
+        ". . nav-title nav-title nav-title nav-button ."
+        "nav-expand nav-expand nav-expand nav-expand nav-expand nav-expand nav-expand"
 }
 
 .nav-title {
     grid-area: nav-title;
-    font-size: 2rem;
-    font-weight: bold;
-    color: var(--accent-color);
+    font-size: 6rem;
+    font-family: var(--font-family);
+    font-weight: 600;
+    font-style: normal;
+    color: var(--gray);
     justify-self: center;
 }
 
@@ -89,8 +101,7 @@
     grid-area: nav-expand;
     height: 0px;
     overflow: hidden;
-    color: var(--text-color);
-    background-color: var(--accent-color);
+    color: var(--gray);
     grid-template-columns: 1fr 5%;
     grid-template-areas:
         "nav-expand-txt ."
@@ -172,7 +183,7 @@
 
 .portfolio-card-border {
     display: grid;
-    border: 1px solid yellow;
+    border: 1px solid #f5d755;
     grid-area: 2 / 2 / 4 / 4;
     grid-template-rows: 1fr 2rem;
     grid-template-areas:
