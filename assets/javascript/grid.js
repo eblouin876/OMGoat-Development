@@ -25,32 +25,6 @@ let scrollLink = function (event) {
 }
 
 
-// Scroll in animations
-var $portfolioCards = $('.sliding');
-var $window = $(window);
-
-let checkIfInView = function () {
-    let windowHeight = $window.height();
-    let windowTopPosition = $window.scrollTop();
-    let windowBottomPosition = windowTopPosition + windowHeight;
-
-    $.each($portfolioCards, function () {
-        let $card = $(this);
-        var cardHeight = $card.outerHeight();
-        let cardTopPosition = $card.offset().top;
-        let cardBottomPosition = cardTopPosition + cardHeight;
-
-        if (cardBottomPosition >= windowTopPosition && cardTopPosition <= windowBottomPosition) {
-            $card.addClass('in-view')
-        } else {
-            $card.removeClass('in-view')
-        }
-    })
-}
-
-$window.on('scroll resize', checkIfInView);
-
-
 // Document listeners
 $(document).on('click', '.nav-button', collapseNav)
 

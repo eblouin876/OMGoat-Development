@@ -40,6 +40,7 @@
     grid-template-columns: .5rem repeat(12, 1fr) .5rem;
     grid-template-rows: repeat(50, var(--row-height));
     color: var(--text-color);
+    overflow: hidden;
 }
 
 
@@ -52,7 +53,7 @@
 }
 
 .about-header {
-    grid-area: 13 / 3 / 18 / 9;
+    grid-area: 13 / 3 / 14 / 9;
     font: var(--font-subhead);
     color: var(--gray);
     padding: .5rem;
@@ -64,7 +65,8 @@
     font: var(--font-body);
     color: var(--blue);
     font-size: 1.5rem;
-    margin-top: .5rem;
+    margin-top: 2.5rem;
+    margin-right: 1.5rem;
 }
 
 /* Title */
@@ -134,6 +136,7 @@
     padding: .5rem;
     font-size: 2rem;
     text-decoration: none;
+    z-index: 100;
 }
 
 
@@ -147,34 +150,37 @@
 }
 
 .portfolio-card {
-    display: grid;
-    grid-area: 24 / 3 / 28 / 6;
     grid-template-columns: 1rem 1fr 2rem;
-    grid-template-rows: 1rem 1fr;
+    grid-template-rows: 1rem 1fr 1fr;
 }
 
-.portfolio-card-image {
+.portfolio-card-image-left {
     grid-area: 1 / 1 / 3 / 3;
     object-fit: contain;
     max-width: 100%;
+    max-height: 100%;
+    border-bottom: 1px solid #f5d755;
+    border-right: 1px solid #f5d755;
+    padding-bottom: 1.5rem;
+    padding-right: 1.5rem;
 }
 
-.portfolio-card-border {
-    display: grid;
-    border: 1px solid #f5d755;
-    grid-area: 2 / 2 / 4 / 4;
-    margin-bottom: 2.5rem;
+.portfolio-card-image-right {
+    grid-area: 1 / 1 / 3 / 3;
+    object-fit: contain;
+    max-width: 100%;
+    max-height: 100%;
+    border-bottom: 1px solid #f5d755;
+    border-left: 1px solid #f5d755;
+    padding-bottom: 1.5rem;
+    padding-left: 1.5rem;
 }
 
 .portfolio-card-button {
-    font-size: 1rem;
-    background-color: var(--background-color);
-    color: var(--text-color);
-    padding: .5rem;
+    font-size: 1.5rem;
+    color: var(--gray);
     text-decoration: none;
-    justify-self: right;
-    align-self: end;
-    margin-right: 1rem;
+    padding-left: .5rem;
 }
 
 
@@ -190,7 +196,8 @@
         ". cont-name ."
         ". cont-email ."
         ". cont-mes ."
-        ". cont-mes .";
+        ". cont-mes ."
+        ". submit .";
 }
 
 .contact-name,
@@ -223,6 +230,15 @@
     font-style: normal;
     color: var(--gray);
     font-size: 3rem;
+}
+
+.submit-contact {
+    grid-area: submit;
+    justify-self: right;
+    margin: .5rem;
+    font-size: 1rem;
+    border-radius: 5%;
+    font-family: var(--font-body);
 }
 
 /* General Properties */

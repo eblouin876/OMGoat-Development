@@ -30,13 +30,117 @@ class Firebase {
     }
 }
 
+class PortfolioCard {
+    constructor(title, description, picture, link) {
+        this.title = title;
+        this.description = description;
+        this.picture = picture;
+        this.link = link;
+    }
+}
+
+class Portfolio {
+    constructor(projects) {
+        this.projects = projects;
+        this.buildPortfolio()
+    }
+    buildPortfolio() {
+        let width = $(window).width()
+        if (width > 1276) {
+            let rowStart = 21;
+            let leftCol = 3;
+            let rightCol = 9;
+            for (let i = 0; i < this.projects.length; i++) {
+                let div;
+                let link = $('<a>').attr('href', this.projects[i].link).addClass('portfolio-card-button').text(`Explore ${this.projects[i].title}`)
+                let img = $('<img>').attr('src', this.projects[i].picture).attr('alt', this.projects[i].name)
+                if (i % 2 !== 0) {
+                    div = $('<div>')
+                        .addClass('portfolio-card sliding slide-left d-none')
+                        .attr('style', `grid-area:${rowStart + (3*i)} / ${leftCol} / ${rowStart + (3*i) + 5} / ${leftCol + 4}`)
+                    img.addClass('portfolio-card-image-left')
+                    link.attr('style', `grid-area:${rowStart + (3*i)+5} / ${leftCol} / ${rowStart + (3*i) + 6} / ${leftCol + 4}`).addClass('portfolio-card sliding slide-left d-none')
+                } else {
+                    div = $('<div>')
+                        .addClass('portfolio-card sliding slide-right d-none')
+                        .attr('style', `grid-area:${rowStart + (3*i)} / ${rightCol} / ${rowStart + (3*i) + 5} / ${rightCol + 4}`)
+                    img.addClass('portfolio-card-image-right')
+                    link.attr('style', `grid-area:${rowStart + (3*i)+5} / ${rightCol} / ${rowStart + (3*i) + 6} / ${rightCol + 4}`).addClass('portfolio-card sliding slide-right d-none')
+                }
+                $('.wrapper').append(div.append(img), link)
+            }
+        }
+    }
+
+}
+
+const hangman = new PortfolioCard("Hangman", "A basic hangman game built from HTML, CSS, and JavaScript", "assets/images/Hangman.jpg", "https://eblouin876.github.io/Word-Guess-Game/")
+const starWarsRPG = new PortfolioCard("Star Wars RPG", "Basic Star Wars RPG built with HTML, CSS, JavaScript, and JQuery", "assets/images/star-wars.jpg", "https://eblouin876.github.io/unit-4-game/")
+const Trivia = new PortfolioCard("Trivia Game", "A basic trivia game with multiple categories of questions to choose from built off of an open source trivia API", "assets/images/trivia.jpg", "https://eblouin876.github.io/TriviaGame/")
+const GifTastic = new PortfolioCard("Gif Tastic", "A simple page where you can go to generate random Gifs by subject, play and puase, and choose to download", "assets/images/gif.gif", "https://eblouin876.github.io/Gif-Tastic/")
+const TTTMultiplayer = new PortfolioCard("Tic Tact Toe", "A multiplayer tic tac toe game that allows users to challenge anyone actively on the site. Built on firebase", "assets/images/ttt.jpg", "https://eblouin876.github.io/RPS-Multiplayer/")
+let port = [hangman, starWarsRPG, Trivia, GifTastic, TTTMultiplayer]
 
 
-
-
-
-// Document listeners
 $(document).ready(() => {
     $(window).trigger('scroll')
     let fire = new Firebase()
+    let portfolio = new Portfolio(port)
+    // Scroll in animations
+
+    var $portfolioCards = $('.sliding');
+    var $window = $(window);
+
+    let checkIfInView = function () {
+        let windowHeight = $window.height();
+        let windowTopPosition = $window.scrollTop();
+        let windowBottomPosition = windowTopPosition + windowHeight;
+
+        $.each($portfolioCards, function () {
+            let $card = $(this);
+            var cardHeight = $card.outerHeight();
+            let cardTopPosition = $card.offset().top;
+            let cardBottomPosition = cardTopPosition + cardHeight;
+
+            if (cardBottomPosition >= windowTopPosition && cardTopPosition <= windowBottomPosition) {
+                $card.addClass('in-view')
+                $card.removeClass('d-none')
+            } else {
+                $card.removeClass('in-view')
+                $card.removeClass('d-none')
+            }
+        })
+    }
+
+    $window.on('scroll resize', checkIfInView);
+
+    let submit = (event) => {
+        event.preventDefault()
+        let name = $("#contact-form")
+        let email = $("#email");
+        let message = $("#message");
+        if (name.val() && email.val() && message.val()) {
+            fire.db.collection('messages').doc().set({
+                    name: name.val(),
+                    email: email.val(),
+                    message: message.val()
+                })
+                .then(function () {
+                    console.log("Document successfully written!");
+                })
+                .catch(function (error) {
+                    console.error("Error writing document: ", error);
+                });
+            name.val("");
+            email.val("");
+            message.val("");
+        }
+    }
+
+    $("#contact").on('submit', submit)
+    $("#message").on('keyup', function (event) {
+        if (event.key === "Enter") {
+            submit()
+        }
+    })
 })
