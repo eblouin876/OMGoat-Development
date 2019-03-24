@@ -29,3 +29,5 @@ let scrollLink = function (event) {
 $(document).on('click', '.nav-button', collapseNav)
 
 $(document).on('click', '.scroll-link', scrollLink)
+
+$(".iziModal").iziModal();

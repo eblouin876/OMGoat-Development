@@ -7,8 +7,11 @@
     <title>OM Goat Development</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://use.typekit.net/suy0puu.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/izimodal/1.5.1/css/iziModal.css">
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/reset.css">
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css">
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
 </head>
 
 <body>
@@ -35,6 +38,7 @@
             and passion for being outside and getting others outside with his skills in development. -->
         </p>
         <h2 class="portfolio-title" id="portfolio">Portfolio</h2>
+
         <form class="contact-form" id="contact">
             <h2 class="contact-header">Contact Emile</h2>
             <input class="contact-name" type="text" placeholder="Name" id="contact-form" required>
@@ -44,7 +48,30 @@
             <textarea cols="30" type="text" rows="10" class="contact-message" placeholder="Message" id="message"
                 required></textarea>
             <input class="submit-contact button" type="submit" value="Submit">
+
         </form>
+
+        <!-- Github Link -->
+        <div id="github">
+            <a class="github-button" href="https://github.com/eblouin876" aria-label="Follow @eblouin876 on GitHub">
+                @eblouin876</a>
+        </div>
+
+        <!-- LinkedIn Link -->
+        <a target="_blank" href="https://www.linkedin.com/in/eblouin876/" id="linked-in">
+            <img src="assets/images/linkedIn.png" alt=linked-in>
+        </a>
+
+        <!-- Resume Modal -->
+        <button data-izimodal-open="#resume-modal" data-izimodal-transitionin="fadeInDown"
+            id="resume-trigger">Resume</button>
+
+    </div>
+
+    <div id="resume-modal" class="iziModal isAttached hasScroll hasShadow" data-iziModal-fullscreen="true"
+        data-iziModal-title="Resume" data-iziModal-width="75vw" aria-labelledby="resume-modal">
+        <!-- Modal content -->
+        <embed src="assets/images/resume.pdf" frameborder="0" id="resume">
     </div>
 
     <div class="nav">
@@ -58,12 +85,18 @@
     </div>
 
 
+
     <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/izimodal/1.5.1/js/iziModal.js"></script>
     <script src="assets/javascript/grid.js"></script>
     <script src="assets/javascript/main.js"></script>
 
 </body>
 
 </html>
+
+
+
+<!-- TODO: Add buttons that link to linkedin, github, resume -->

@@ -1,22 +1,3 @@
-/* 
-    <div class="nav">
-        <h1 class="nav-title">OM Goat</h1>
-        <img class="nav-button" src="assets/images/menu.png" alt="menu">
-        <div class="nav-expand" state="collapsed">
-            <a class="nav-expand-txt">Portfolio</a>
-        </div>
-    </div> */
-
-/*         
-        <div class="portfolio-card">
-            <div class="portfolio-card-border">
-                <a src="#" class="portfolio-card-button center">Check it Out!</a>
-            </div>
-            <img src="https://placeimg.com/640/480/nature" alt="Nature" class="portfolio-card-image">
-        </div> */
-
-
-
 /* Able to set color scheme here so that you don't have to search for every instance */
 :root {
     --row-height: calc(100vh / 12);
@@ -33,6 +14,7 @@
     background-image: url("../images/background.jpg");
     background-size: 100% calc(50 * var(--row-height));
 }
+
 
 /* Primary wrapper */
 .wrapper {
@@ -140,7 +122,7 @@
 }
 
 
-/* Portfolio styling */
+/* Portfolio card styling */
 .portfolio-title {
     grid-area: 20 / 3 / 22 / 9;
     font: var(--font-subhead);
@@ -185,7 +167,6 @@
 
 
 /* Contact form */
-
 
 .contact-form {
     display: grid;
@@ -240,6 +221,43 @@
     border-radius: 5%;
     font-family: var(--font-body);
 }
+
+/* Links to outside pages */
+#github {
+    grid-area: 49 / 7 / 50 / 9;
+    align-self: center;
+    justify-self: center;
+}
+
+#linked-in {
+    grid-area: 48 / 7 / 49 / 9;
+    align-self: center;
+    justify-self: center;
+}
+
+
+/* Resume modal */
+#resume-trigger {
+    grid-area: 47 / 7 / 48 / 9;
+    font-size: 1.25rem;
+    font-family: var(--font-header);
+    color: white;
+    align-self: center;
+    justify-self: center;
+    background-color: transparent;
+    border: none;
+}
+
+#resume-trigger,
+.submit-contact {
+    cursor: pointer;
+}
+
+#resume {
+    height: calc(100vh - 44px);
+    width: 100%;
+}
+
 
 /* General Properties */
 .d-none {
