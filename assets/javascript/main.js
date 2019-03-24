@@ -80,11 +80,12 @@ class Portfolio {
 // Should bring focus to modal and away from background
 
 const hangman = new PortfolioCard("Hangman", "A basic hangman game built from HTML, CSS, and JavaScript", "assets/images/hangman.png", "https://eblouin876.github.io/Word-Guess-Game/")
+const barkParkFinder = new PortfolioCard("Bark Park Finder", "A web application that allows users to find and check in to their local dog pars", "assets/images/barkParkFinder.jpg", "https://eblouin876.github.io/Bark-Park-Finder/")
 const starWarsRPG = new PortfolioCard("Star Wars RPG", "Basic Star Wars RPG built with HTML, CSS, JavaScript, and JQuery", "assets/images/star-wars.jpg", "https://eblouin876.github.io/unit-4-game/")
 const Trivia = new PortfolioCard("Trivia Game", "A basic trivia game with multiple categories of questions to choose from built off of an open source trivia API", "assets/images/trivia.jpg", "https://eblouin876.github.io/TriviaGame/")
 const GifTastic = new PortfolioCard("Gif Tastic", "A simple page where you can go to generate random Gifs by subject, play and puase, and choose to download", "assets/images/gif.gif", "https://eblouin876.github.io/Gif-Tastic/")
 const TTTMultiplayer = new PortfolioCard("Tic Tact Toe", "A multiplayer tic tac toe game that allows users to challenge anyone actively on the site. Built on firebase", "assets/images/ttt.jpg", "https://eblouin876.github.io/RPS-Multiplayer/")
-let port = [hangman, starWarsRPG, Trivia, GifTastic, TTTMultiplayer]
+let port = [barkParkFinder, starWarsRPG, Trivia, GifTastic, TTTMultiplayer]
 
 
 $(document).ready(() => {
