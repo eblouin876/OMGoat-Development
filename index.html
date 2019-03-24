@@ -7,7 +7,6 @@
     <title>OM Goat Development</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://use.typekit.net/suy0puu.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/izimodal/1.5.1/css/iziModal.css">
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/reset.css">
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css">
@@ -16,8 +15,11 @@
 
 <body>
     <div class="wrapper">
+        <!-- Title -->
         <h1 class="main-title center">Ozark Mountain Goat</h1>
         <h2 class="sub-title center">Full Stack Development</h2>
+
+        <!-- About Section -->
         <div class="about-photo center sliding slide-right d-none">
             <img src="assets/images/profilesqr.jpg" alt="Emile" class="about-photo">
         </div>
@@ -39,6 +41,7 @@
         </p>
         <h2 class="portfolio-title" id="portfolio">Portfolio</h2>
 
+        <!-- Contact Form -->
         <form class="contact-form" id="contact">
             <h2 class="contact-header">Contact Emile</h2>
             <input class="contact-name" type="text" placeholder="Name" id="contact-form" required>
@@ -65,15 +68,15 @@
         <!-- Resume Modal -->
         <button data-izimodal-open="#resume-modal" data-izimodal-transitionin="fadeInDown"
             id="resume-trigger">Resume</button>
-
+        <div id="resume-modal" class="iziModal isAttached hasScroll hasShadow" data-iziModal-fullscreen="true"
+            data-iziModal-title="Resume" data-iziModal-width="75vw" aria-labelledby="resume-modal">
+            <!-- Resume Modal Content -->
+            <embed src="assets/images/resume.pdf" frameborder="0" id="resume">
+        </div>
     </div>
 
-    <div id="resume-modal" class="iziModal isAttached hasScroll hasShadow" data-iziModal-fullscreen="true"
-        data-iziModal-title="Resume" data-iziModal-width="75vw" aria-labelledby="resume-modal">
-        <!-- Modal content -->
-        <embed src="assets/images/resume.pdf" frameborder="0" id="resume">
-    </div>
 
+    <!-- Navbar (Below wrapper so that it stays on top of elements in wrapper) -->
     <div class="nav">
         <!-- <h1 class="nav-title">Ozark Mountain Goat Development</h1> -->
         <img class="nav-button" src="assets/images/menu.png" alt="menu">
@@ -96,7 +99,3 @@
 </body>
 
 </html>
-
-
-
-<!-- TODO: Add buttons that link to linkedin, github, resume -->

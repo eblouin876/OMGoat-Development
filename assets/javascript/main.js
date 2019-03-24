@@ -30,6 +30,7 @@ class Firebase {
     }
 }
 
+// Class to store portfolio cards
 class PortfolioCard {
     constructor(title, description, picture, link) {
         this.title = title;
@@ -39,6 +40,7 @@ class PortfolioCard {
     }
 }
 
+// Class to build the portfolio and render it on screen
 class Portfolio {
     constructor(projects) {
         this.projects = projects;
@@ -86,14 +88,22 @@ let port = [hangman, starWarsRPG, Trivia, GifTastic, TTTMultiplayer]
 
 
 $(document).ready(() => {
-    $(window).trigger('scroll')
-    let fire = new Firebase()
-    let portfolio = new Portfolio(port)
-    // Scroll in animations
+    // Initiate modals
+    $(".iziModal").iziModal();
 
+    // Trigger a scroll event to populate array
+    $(window).trigger('scroll')
+
+    // Initiate firebase
+    let fire = new Firebase()
+
+    // Build portfolio cards
+    new Portfolio(port)
+
+
+    // ScrollIn animations
     var $portfolioCards = $('.sliding');
     var $window = $(window);
-
     let checkIfInView = function () {
         let windowHeight = $window.height();
         let windowTopPosition = $window.scrollTop();
@@ -114,10 +124,10 @@ $(document).ready(() => {
             }
         })
     }
-
     $window.on('scroll resize', checkIfInView);
 
-    let submit = (event) => {
+
+    function submit(event) {
         event.preventDefault()
         let name = $("#contact-form")
         let email = $("#email");

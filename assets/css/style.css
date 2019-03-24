@@ -167,7 +167,6 @@
 
 
 /* Contact form */
-
 .contact-form {
     display: grid;
     grid-area: 45 / 8 / 51 / 14;
@@ -269,11 +268,8 @@
     justify-self: center;
 }
 
-.scroll-box {
-    overflow: scroll;
-    padding: .25rem;
-}
 
+/* Sliding animations for portfolio cards*/
 .sliding {
     opacity: 0;
 }

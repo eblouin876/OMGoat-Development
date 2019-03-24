@@ -1,4 +1,6 @@
-// Functions
+// Functions for layout
+
+// Navbar collapse function
 let collapseNav = () => {
     if ($(".nav-expand").attr("state") === "collapsed") {
         $(".nav-expand").animate({
@@ -13,6 +15,7 @@ let collapseNav = () => {
     }
 }
 
+// Function that causes links in dropdown to scroll to section on page
 let scrollLink = function (event) {
     event.preventDefault();
     $("html, body").animate({
@@ -29,5 +32,3 @@ let scrollLink = function (event) {
 $(document).on('click', '.nav-button', collapseNav)
 
 $(document).on('click', '.scroll-link', scrollLink)
-
-$(".iziModal").iziModal();
