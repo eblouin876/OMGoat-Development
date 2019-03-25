@@ -74,8 +74,8 @@ class Portfolio {
             }
         }
 
-        if (width > 768 && width < 1276) {
-            let rowStart = 21;
+        if (width > 766 && width < 1276) {
+            let rowStart = 17;
             let leftCol = 3;
             let rightCol = 9;
             for (let i = 0; i < this.projects.length; i++) {
@@ -85,21 +85,21 @@ class Portfolio {
                 if (i % 2 !== 0) {
                     div = $('<div>')
                         .addClass('portfolio-card sliding slide-left d-none')
-                        .attr('style', `grid-area:${rowStart + (3*i)} / ${leftCol} / ${rowStart + (3*i) + 5} / ${leftCol + 4}`)
+                        .attr('style', `grid-area:${rowStart + (4*i)} / ${leftCol} / ${rowStart + (4*i) + 5} / ${leftCol + 4}`)
                     img.addClass('portfolio-card-image-left')
-                    link.attr('style', `grid-area:${rowStart + (3*i)+5} / ${leftCol} / ${rowStart + (3*i) + 6} / ${leftCol + 4}`).addClass('portfolio-card sliding slide-left d-none')
+                    link.attr('style', `grid-area:${rowStart + (4*i)+4} / ${leftCol} / ${rowStart + (4*i) + 5} / ${leftCol + 4}`).addClass('portfolio-card sliding slide-left d-none')
                 } else {
                     div = $('<div>')
                         .addClass('portfolio-card sliding slide-right d-none')
-                        .attr('style', `grid-area:${rowStart + (3*i)} / ${rightCol} / ${rowStart + (3*i) + 5} / ${rightCol + 4}`)
+                        .attr('style', `grid-area:${rowStart + (4*i)} / ${rightCol} / ${rowStart + (4*i) + 5} / ${rightCol + 4}`)
                     img.addClass('portfolio-card-image-right')
-                    link.attr('style', `grid-area:${rowStart + (3*i)+5} / ${rightCol} / ${rowStart + (3*i) + 6} / ${rightCol + 4}`).addClass('portfolio-card sliding slide-right d-none')
+                    link.attr('style', `grid-area:${rowStart + (4*i)+4} / ${rightCol} / ${rowStart + (4*i) + 5} / ${rightCol + 4}`).addClass('portfolio-card sliding slide-right d-none')
                 }
                 $('.wrapper').append(div.append(img), link)
             }
         }
 
-        if (width < 768) {
+        if (width < 766) {
             let rowStart = 15;
             let leftCol = 4;
             let rightCol = 4;
