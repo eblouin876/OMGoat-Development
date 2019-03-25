@@ -73,6 +73,31 @@ class Portfolio {
                 $('.wrapper').append(div.append(img), link)
             }
         }
+
+        if (width < 768) {
+            let rowStart = 15;
+            let leftCol = 3;
+            let rightCol = 3;
+            for (let i = 0; i < this.projects.length; i++) {
+                let div;
+                let link = $('<a>').attr('href', this.projects[i].link).addClass('portfolio-card-button').text(`Explore ${this.projects[i].title}`)
+                let img = $('<img>').attr('src', this.projects[i].picture).attr('alt', this.projects[i].title).attr('data-github', this.projects[i].github).addClass('portfolio-modal-toggle')
+                if (i % 2 !== 0) {
+                    div = $('<div>')
+                        .addClass('portfolio-card sliding slide-left d-none')
+                        .attr('style', `grid-area:${rowStart + (5*i)} / ${leftCol} / ${rowStart + (5*i) + 5} / ${leftCol + 9}`)
+                    img.addClass('portfolio-card-image-left')
+                    link.attr('style', `grid-area:${rowStart + (5*i)+4} / ${leftCol} / ${rowStart + (5*i) + 5} / ${leftCol + 10}`).addClass('portfolio-card sliding slide-left d-none')
+                } else {
+                    div = $('<div>')
+                        .addClass('portfolio-card sliding slide-right d-none')
+                        .attr('style', `grid-area:${rowStart + (5*i)} / ${rightCol} / ${rowStart + (5*i) + 5} / ${rightCol + 9}`)
+                    img.addClass('portfolio-card-image-right')
+                    link.attr('style', `grid-area:${rowStart + (5*i)+4} / ${rightCol} / ${rowStart + (5*i) + 5} / ${rightCol + 10}`).addClass('portfolio-card sliding slide-right d-none')
+                }
+                $('.wrapper').append(div.append(img), link)
+            }
+        }
     }
 
 }
@@ -132,6 +157,7 @@ $(document).ready(() => {
         })
     }
     $window.on('scroll resize', checkIfInView);
+    $(window).trigger('scroll')
 
 
     function submit(event) {
@@ -163,5 +189,5 @@ $(document).ready(() => {
             submit()
         }
     })
-    $(document).on('hover', '.portfolio-modal-toggle', showModal)
+    // $(document).on('hover', '.portfolio-modal-toggle', showModal)
 })
