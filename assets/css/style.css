@@ -288,3 +288,37 @@
     opacity: 1;
     transform: translateX(0px);
 }
+
+
+/* Media Queries */
+
+@media screen and (max-width: 768px) {
+    :root {
+        background-image: url("../images/mobileBackground.jpg");
+    }
+
+    .contact-form {
+        grid-area: 43 / 2 / 48 / 14;
+    }
+
+    #resume-trigger {
+        grid-area: 48 / 1 / 49 / 6;
+        align-self: end;
+    }
+
+    #linked-in {
+        grid-area: 47 / 10 / 49 / 15;
+        align-self: end;
+    }
+
+    #github {
+        align-self: end;
+        grid-area: 48 / 2 / 49 / 14;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1200px) {
+    :root {
+        background-image: url("../images/tabletBackground.jpg");
+    }
+}
