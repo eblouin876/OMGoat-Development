@@ -165,6 +165,10 @@
     padding-left: .5rem;
 }
 
+#click-to-open {
+    display: none;
+}
+
 
 /* Contact form */
 .contact-form {
@@ -292,9 +296,8 @@
 
 /* Media Queries */
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 766px) {
     :root {
-        background-size: 100% calc(50 * var(--row-height));
         background-image: url("../images/mobileBackground.jpg");
     }
 
@@ -313,7 +316,7 @@
     }
 
     .sub-title {
-        grid-area: 3 / 4 / 5 / 13;
+        grid-area: 4 / 3 / 5 / 13;
         font-size: 2rem;
         align-self: end !important;
     }
@@ -333,7 +336,7 @@
         grid-area: 9 / 2 / 12 / 14;
         margin-right: 0;
         margin-top: 3.5rem;
-        font-size: 1.25rem;
+        font-size: 1rem;
         text-align: center
     }
 
@@ -348,11 +351,19 @@
         align-self: center;
         text-align: center;
         margin-bottom: 1rem;
+        font-size: 1rem;
     }
 
     .portfolio-card {
         margin-right: .25rem;
         margin-left: .25rem;
+    }
+
+    #click-to-open {
+        display: block;
+        color: white;
+        font-size: .75rem;
+        grid-area: 14 / 7 / 15 / 10;
     }
 
     /* Bottom forms section */
@@ -376,8 +387,80 @@
     }
 }
 
-@media screen and (min-width: 768px) and (max-width: 1200px) {
+@media screen and (min-width: 766px) and (max-width: 1200px) {
     :root {
         background-image: url("../images/tabletBackground.jpg");
+    }
+
+
+    .nav-expand {
+        grid-template-columns: 1fr;
+    }
+
+    .nav-expand-txt {
+        font-size: 1.25rem;
+        justify-self: right !important;
+    }
+
+    .main-title {
+        grid-area: 1 / 2 / 5 / 14;
+        font-size: 4rem;
+    }
+
+    .sub-title {
+        grid-area: 4 / 2 / 5 / 11;
+        font-size: 3rem;
+    }
+
+    .about-header {
+        grid-area: 7 / 2 / 8 / 14;
+        font-size: 4rem;
+        text-align: center;
+    }
+
+    .about-photo {
+        grid-area: 9 / 9 / 11 / 13;
+    }
+
+    .about-text {
+        grid-area: 8 / 2 / 13 / 9;
+        text-align: center
+    }
+
+    .portfolio-title {
+        grid-area: 14 / 4 / 15 / 8;
+        font-size: 4rem;
+        justify-self: center;
+        align-self: center;
+    }
+
+    .portfolio-card-button {
+        text-align: center;
+        font-size: 1.25rem;
+    }
+
+    .portfolio-card {
+        margin-right: .25rem;
+        margin-left: .25rem;
+    }
+
+    /* Bottom forms section */
+    .contact-form {
+        grid-area: 42 / 5 / 47 / 14;
+    }
+
+    #resume-trigger {
+        grid-area: 47 / 3 / 48 / 6;
+        align-self: end;
+    }
+
+    #linked-in {
+        grid-area: 47 / 9 / 48 / 15;
+        align-self: end;
+    }
+
+    #github {
+        align-self: end;
+        grid-area: 47 / 2 / 48 / 14;
     }
 }
