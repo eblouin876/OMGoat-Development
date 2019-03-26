@@ -55,22 +55,34 @@ class Portfolio {
             let rightCol = 9;
             for (let i = 0; i < this.projects.length; i++) {
                 let div;
-                let link = $('<a>').attr('href', this.projects[i].link).addClass('portfolio-card-button').text(`Explore ${this.projects[i].title}`)
-                let img = $('<img>').attr('src', this.projects[i].picture).attr('alt', this.projects[i].title).attr('data-github', this.projects[i].github).addClass('portfolio-modal-toggle')
+                let id = this.projects[i].title.split(" ").join("")
+                let img = $('<img>')
+                    .attr('src', this.projects[i].picture)
+                    .attr('alt', this.projects[i].title)
+                    .addClass('portfolio-modal-toggle')
+                    .attr('data-izimodal-open', `#${id}`)
+                    .attr('data-izimodal-transitionin', 'fadeInDown')
+                let modal = $('<div>')
+                    .attr('id', id)
+                    .addClass('iziModal isAttached')
+                    .attr('data-iziModal-title', this.projects[i].title)
+                    .attr('aria-labelledby', `${id}-modal`)
+                let github = $('<a>').text(`View Repository: ${this.projects[i].github}`).attr('href', this.projects[i].github).addClass('portfolio-link').attr('target', '_blank')
+                let viewLive = $('<a>').text(`View Live Version: ${this.projects[i].link}`).attr('href', this.projects[i].link).addClass('portfolio-link').attr('target', '_blank')
+                modal.append(github, viewLive)
                 if (i % 2 !== 0) {
                     div = $('<div>')
                         .addClass('portfolio-card sliding slide-left d-none')
                         .attr('style', `grid-area:${rowStart + (3*i)} / ${leftCol} / ${rowStart + (3*i) + 5} / ${leftCol + 4}`)
                     img.addClass('portfolio-card-image-left')
-                    link.attr('style', `grid-area:${rowStart + (3*i)+5} / ${leftCol} / ${rowStart + (3*i) + 6} / ${leftCol + 4}`).addClass('portfolio-card sliding slide-left d-none')
                 } else {
                     div = $('<div>')
                         .addClass('portfolio-card sliding slide-right d-none')
                         .attr('style', `grid-area:${rowStart + (3*i)} / ${rightCol} / ${rowStart + (3*i) + 5} / ${rightCol + 4}`)
                     img.addClass('portfolio-card-image-right')
-                    link.attr('style', `grid-area:${rowStart + (3*i)+5} / ${rightCol} / ${rowStart + (3*i) + 6} / ${rightCol + 4}`).addClass('portfolio-card sliding slide-right d-none')
+                        .attr('style', `grid-area:${rowStart + (3*i)+5} / ${rightCol} / ${rowStart + (3*i) + 6} / ${rightCol + 4}`).addClass('portfolio-card sliding slide-right d-none')
                 }
-                $('.wrapper').append(div.append(img), link)
+                $('.wrapper').append(div.append(img, modal))
             }
         }
 
@@ -80,22 +92,35 @@ class Portfolio {
             let rightCol = 9;
             for (let i = 0; i < this.projects.length; i++) {
                 let div;
-                let link = $('<a>').attr('href', this.projects[i].link).addClass('portfolio-card-button').text(`Explore ${this.projects[i].title}`)
-                let img = $('<img>').attr('src', this.projects[i].picture).attr('alt', this.projects[i].title).attr('data-github', this.projects[i].github).addClass('portfolio-modal-toggle')
+                let id = this.projects[i].title.split(" ").join("")
+                let img = $('<img>')
+                    .attr('data-link', this.projects[i].link)
+                    .attr('src', this.projects[i].picture)
+                    .attr('alt', this.projects[i].title)
+                    .attr('data-github', this.projects[i].github)
+                    .addClass('portfolio-modal-toggle')
+                    .attr('data-izimodal-open', `#${id}`)
+                    .attr('data-izimodal-transitionin', 'fadeInDown')
+                let modal = $('<div>')
+                    .attr('id', id)
+                    .addClass('iziModal isAttached')
+                    .attr('data-iziModal-title', this.projects[i].title)
+                    .attr('aria-labelledby', `${id}-modal`)
+                let github = $('<a>').text(`View Repository: ${this.projects[i].github}`).attr('href', this.projects[i].github).addClass('portfolio-link').attr('target', '_blank')
+                let viewLive = $('<a>').text(`View Live Version: ${this.projects[i].link}`).attr('href', this.projects[i].link).addClass('portfolio-link').attr('target', '_blank')
+                modal.append(github, viewLive)
                 if (i % 2 !== 0) {
                     div = $('<div>')
                         .addClass('portfolio-card sliding slide-left d-none')
                         .attr('style', `grid-area:${rowStart + (4*i)} / ${leftCol} / ${rowStart + (4*i) + 5} / ${leftCol + 4}`)
                     img.addClass('portfolio-card-image-left')
-                    link.attr('style', `grid-area:${rowStart + (4*i)+4} / ${leftCol} / ${rowStart + (4*i) + 5} / ${leftCol + 4}`).addClass('portfolio-card sliding slide-left d-none')
                 } else {
                     div = $('<div>')
                         .addClass('portfolio-card sliding slide-right d-none')
                         .attr('style', `grid-area:${rowStart + (4*i)} / ${rightCol} / ${rowStart + (4*i) + 5} / ${rightCol + 4}`)
                     img.addClass('portfolio-card-image-right')
-                    link.attr('style', `grid-area:${rowStart + (4*i)+4} / ${rightCol} / ${rowStart + (4*i) + 5} / ${rightCol + 4}`).addClass('portfolio-card sliding slide-right d-none')
                 }
-                $('.wrapper').append(div.append(img), link)
+                $('.wrapper').append(div.append(img, modal))
             }
         }
 
@@ -105,22 +130,35 @@ class Portfolio {
             let rightCol = 4;
             for (let i = 0; i < this.projects.length; i++) {
                 let div;
-                // let link = $('<a>').attr('href', this.projects[i].link).addClass('portfolio-card-button').text(`Explore ${this.projects[i].title}`)
-                let img = $('<img>').attr('src', this.projects[i].picture).attr('alt', this.projects[i].title).attr('data-github', this.projects[i].github).addClass('portfolio-modal-toggle')
+                let id = this.projects[i].title.split(" ").join("")
+                let img = $('<img>')
+                    .attr('src', this.projects[i].picture)
+                    .attr('alt', this.projects[i].title)
+                    .attr('data-github', this.projects[i].github)
+                    .attr('data-link', this.projects[i].link)
+                    .addClass('portfolio-modal-toggle')
+                    .attr('data-izimodal-open', `#${id}`)
+                    .attr('data-izimodal-transitionin', 'fadeInDown')
+                let modal = $('<div>')
+                    .attr('id', id)
+                    .addClass('iziModal isAttached')
+                    .attr('data-iziModal-title', this.projects[i].title)
+                    .attr('aria-labelledby', `${id}-modal`)
+                let github = $('<a>').text(`View Repository: ${this.projects[i].github}`).attr('href', this.projects[i].github).addClass('portfolio-link').attr('target', '_blank')
+                let viewLive = $('<a>').text(`View Live Version: ${this.projects[i].link}`).attr('href', this.projects[i].link).addClass('portfolio-link').attr('target', '_blank')
+                modal.append(github, viewLive)
                 if (i % 2 !== 0) {
                     div = $('<div>')
                         .addClass('portfolio-card sliding slide-left d-none')
                         .attr('style', `grid-area:${rowStart + (5*i)} / ${leftCol} / ${rowStart + (5*i) + 5} / ${leftCol + 7}`)
                     img.addClass('portfolio-card-image-left')
-                    // link.attr('style', `grid-area:${rowStart + (5*i)+3} / ${leftCol} / ${rowStart + (5*i) + 4} / ${leftCol + 8}`).addClass('portfolio-card sliding slide-left d-none')
                 } else {
                     div = $('<div>')
                         .addClass('portfolio-card sliding slide-right d-none')
                         .attr('style', `grid-area:${rowStart + (5*i)} / ${rightCol} / ${rowStart + (5*i) + 5} / ${rightCol + 7}`)
                     img.addClass('portfolio-card-image-right')
-                    // link.attr('style', `grid-area:${rowStart + (5*i)+3} / ${rightCol} / ${rowStart + (5*i) + 4} / ${rightCol + 8}`).addClass('portfolio-card sliding slide-right d-none')
                 }
-                $('.wrapper').append(div.append(img)) //, link)
+                $('.wrapper').append(div.append(img, modal)) //, link)
             }
         }
     }
@@ -146,7 +184,6 @@ function showModal() {
 
 $(document).ready(() => {
     // Initiate modals
-    $(".iziModal").iziModal();
 
     // Trigger a scroll event to populate array
     $(window).trigger('scroll')
@@ -157,6 +194,7 @@ $(document).ready(() => {
     // Build portfolio cards
     new Portfolio(port)
 
+    $(".iziModal").iziModal();
 
     // ScrollIn animations
     var $portfolioCards = $('.sliding');

@@ -165,8 +165,19 @@
     padding-left: .5rem;
 }
 
+.portfolio-link {
+    text-decoration: none;
+    display: block;
+    color: black;
+    font-size: 1.5rem;
+    padding: .5rem;
+    width: 100%
+}
+
 #click-to-open {
-    display: none;
+    grid-area: 21 / 4 / 22 / 5;
+    color: white;
+    font-size: .75rem;
 }
 
 
@@ -360,9 +371,6 @@
     }
 
     #click-to-open {
-        display: block;
-        color: white;
-        font-size: .75rem;
         grid-area: 14 / 7 / 15 / 10;
     }
 
@@ -432,6 +440,10 @@
         font-size: 4rem;
         justify-self: center;
         align-self: center;
+    }
+
+    #click-to-open {
+        grid-area: 15 / 6 / 16 / 8;
     }
 
     .portfolio-card-button {
